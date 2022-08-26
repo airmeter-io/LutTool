@@ -1,0 +1,18 @@
+﻿@page "/edit"
+@using LutLib.View
+@inject MainView mainView
+
+<PageTitle>Editor</PageTitle>
+
+<h1>Editor</h1>
+
+
+<div class="groups">
+    @foreach (var group in mainView.Groups)
+    {
+    <div class="groupContainer">
+        <LutGroup Group=@group />
+    </div>
+    }
+</div>
+

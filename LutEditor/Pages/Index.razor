@@ -1,0 +1,49 @@
+﻿@page "/"
+@using LutLib.View
+@inject MainView mainView
+<PageTitle>Parse</PageTitle>
+<strong>Choose Controller</strong>
+<select class="form-control" @bind="@SelectedController">
+
+        @foreach (var controller in mainView.AvailableControllers)
+        {
+            <option value="@controller"> @controller </option>
+        }
+        
+</select>
+<strong>Encoded LUT (Expected Size: @mainView.SelectedController.LutLength)</strong>
+<textarea class="form-control" rows="10" @bind="encodedLut"></textarea>
+<button class="btn btn-primary" @onclick="ParseLUT">Parse</button>
+
+
+
+
+
+@code {
+    private string encodedLut = "";
+
+    private String SelectedController
+    {
+        get => mainView.SelectedController.ToString();
+        set
+        {
+            mainView.SelectedController = mainView.AvailableControllers.First(pX => pX.ToString() == value);
+        }
+    }
+
+    private string EncodedLut
+    {
+        get => mainView.InputText;
+
+        set => mainView.InputText = value;
+    }
+
+    private void ParseLUT()
+    {
+        if (!string.IsNullOrEmpty(encodedLut))
+        {
+            mainView.InputText = encodedLut;
+            mainView.ParseCommand.Execute(null);
+        }
+    }
+}

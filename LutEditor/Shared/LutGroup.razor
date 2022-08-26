@@ -1,0 +1,64 @@
+﻿@using LutLib.View
+@using LutTool.View
+<div class="group">
+            <h2>Group @Group.Index</h2>
+            <div>
+                <strong>Repeat</strong>
+                <input type="number" @bind="Group.RepeatCountingNumber" min="0" max="255"/>
+            </div>
+            @if (Group.FrameRatesVisibile)
+            {
+                <div>
+                <strong>FrameRate</strong>
+                <input type="number" @bind="Group.FrameRate" min="0" max="15"/>
+                </div>
+            }
+            @foreach (var phase in Group.Phases)
+            {
+            
+                <div class="phase">
+                    <h3>Phase @phase.Type</h3>
+                    <div>
+                    <strong>Length</strong>
+                    <input type="number" @bind="phase.PhaseLength" min="0" max="255"/>
+                    </div>
+                    @foreach (var voltageSource in phase.VoltageSources)
+                    {
+                        <div>
+                            <strong>LUT Src @voltageSource.Lut</strong>
+                            <select  @bind="@voltageSource.VoltageSourceCode">
+                                    @foreach (var source in voltageSource.AvailableSources)
+                                    {
+                                        <option value="@source"> @source </option>
+                                    }        
+                            </select>
+                        </div>
+                    }
+                </div>
+            }
+            @if (Group.PhaseGroupsVisible)
+            {
+                @foreach (var phaseGroup in Group.PhaseGroups)
+                {
+            
+                    <div class="phaseGroup">
+                        <h3>Phase @phaseGroup.Left, @phaseGroup.Right </h3>
+                        <div>
+                            <strong>Rpt Cnt No</strong>
+                            <input type="number" @bind="phaseGroup.StateRepeatCountingNumber" min="0" max="255"/>
+                        </div>
+                        <div>
+                            <strong>Xon</strong>
+                            <input type="checkbox" @bind="phaseGroup.Xon"/>
+                        </div>
+                                          
+                    </div>
+                }
+            }
+        </div>
+
+@code {
+    // Demonstrates how a parent component can supply parameters
+    [Parameter]
+    public LutGroupView Group { get; set; }
+}

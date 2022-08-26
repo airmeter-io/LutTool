@@ -1,0 +1,62 @@
+﻿@page "/save"
+@using LutLib.View
+@inject MainView mainView
+@inject IClipboardService ClipboardService
+<PageTitle>Save</PageTitle>
+
+<strong>Encoded LUT (Expected Size: @mainView.SelectedController.LutLength)</strong>
+<textarea readonly class="form-control" rows="10" @bind="encodedLut"></textarea>
+
+@if (encodedLut != "" && !copied)
+{
+    <button class="btn btn-secondary" @onclick="SaveLUT">Generate Blob</button>
+    <button class="btn btn-primary" @onclick="CopyLUT">Copy to Clipboard</button>
+}
+else if (encodedLut != "" )
+{
+    <button class="btn btn-primary" @onclick="SaveLUT">Generate Blob</button>
+    <button class="btn btn-secondary" @onclick="CopyLUT">Copy to Clipboard</button>
+}
+else
+{
+    <button class="btn btn-primary" @onclick="SaveLUT">Generate Blob</button>
+    
+}
+
+
+
+
+@code {
+    private string encodedLut = "";
+    private bool copied = false;
+    private readonly IJSRuntime _jsInterop;
+    private String SelectedController
+    {
+        get => mainView.SelectedController.ToString();
+        set
+        {
+            mainView.SelectedController = mainView.AvailableControllers.First(pX => pX.ToString() == value);
+        }
+    }
+
+    private string EncodedLut
+    {
+        get => encodedLut;
+
+        set => encodedLut = value;
+    }
+
+    private void SaveLUT()
+    {
+        mainView.CompileCommand.Execute(null);
+        encodedLut = mainView.CompiledText;
+        copied = false;
+
+    }
+
+    private async Task CopyLUT()
+    {
+        await ClipboardService.CopyToClipboard(encodedLut);
+        copied = true;
+    }
+}
