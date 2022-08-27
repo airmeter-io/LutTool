@@ -197,3 +197,6 @@
 /LutEditor/bin/Release/net6.0/WindowsBase.dll
 /LutEditor/*.user
 *.user
+/LutEditor/bin/Release/net6.0
+/LutLib/.vs/LutLib/DesignTimeBuild
+/LutLib/.vs/LutLib/FileContentIndex
