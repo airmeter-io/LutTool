@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "LutEditor.dll": "sha256-pSWDtZxVneqaGcIBulLDkaxluUvNhC1EVnQTbHfOEB0=",
-      "LutLib.dll": "sha256-xvaL4JS4ZiSr0CZ88\/WNvTKfwr9SMuiZaMOULcvAV+I=",
+      "LutEditor.dll": "sha256-DGtmKtdX\/O73PJElT6eq+zZdeSom6V2asq9WN+NsHpw=",
+      "LutLib.dll": "sha256-hKROhg0uNaid9h4iAfRUBEB7h1CL0gmT53AZ0yN40LI=",
       "Microsoft.AspNetCore.Components.dll": "sha256-pbHiF5gv+0dma8S5E8b\/IhGSdOIGHE7eF3KqXb59wJE=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-0aR4Y1cN4iPqfEadyUaDtu2btR5SjzMAE0C7cPfuo1w=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-hItIMIcIumfGi1q3IylwSEfpyLuK1QShnYCDeXYXF+M=",
@@ -51,13 +51,13 @@
     "libraryInitializers": null,
     "pdb": null,
     "runtime": {
-      "dotnet.6.0.8.ojsiey8cf6.js": "sha256-LnVPOTu7LLsN2KQS21SV7hAoAmknZldGd\/xbaUf6JlU=",
+      "dotnet.6.0.8.m770zwwswt.js": "sha256-vMTrjEVfpU08uIeiVKhLQDbCY4QHK\/92rPWaQw+oNaE=",
       "dotnet.timezones.blat": "sha256-2NJf++ql6UnbRRdYWEir6MxH58bYGWDEqofII\/z+Xmo=",
-      "dotnet.wasm": "sha256-I2wy5ZPTwVjm3\/vwCxh5uA5uyod\/kePqgvZx9mOEQ3o=",
-      "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",
+      "dotnet.wasm": "sha256-8GznwU85LOHi9oVLVzaqApjOm+Z93OpKHfp48E0ywO8=",
       "icudt_CJK.dat": "sha256-WPyI4hWDPnOw62Nr27FkzGjdbucZnQD+Ph+GOPhAedw=",
       "icudt_EFIGS.dat": "sha256-4RwaPx87Z4dvn77ie\/ro3\/QzyS+\/gGmO3Y\/0CSAXw4k=",
-      "icudt_no_CJK.dat": "sha256-OxylFgLJlFqixsj+nLxYVsv5iZLvfIKMpLf9hrWaChA="
+      "icudt_no_CJK.dat": "sha256-OxylFgLJlFqixsj+nLxYVsv5iZLvfIKMpLf9hrWaChA=",
+      "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE="
     },
     "satelliteResources": null
   }
